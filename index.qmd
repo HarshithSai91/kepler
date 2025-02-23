@@ -35,7 +35,7 @@ Visit Kepler.gl
 
 ### Step 1: Installation
 Use Node v18 and above, older node versions have not been tested
-```
+```js
 npm install --save kepler.gl @kepler.gl/components @kepler.gl/reducers
 ```
 
@@ -44,7 +44,7 @@ Kepler.gl is built on top of Mapbox GL. A mapbox account and an access token are
 
 ### 0. Working Template
 
-```
+```js
 import * as React from "react";
 import ReactDOM from "react-dom/client";
 import document from "global/document";
@@ -113,7 +113,7 @@ export default Root;
 ### 1. Mount reducer
 Kepler.gl uses Redux to manage its internal state, along with react-palm middleware to handle side effects. Mount kepler.gl reducer in your store, apply taskMiddleware.
 
-```
+```js
 import keplerGlReducer from '@kepler.gl/reducers';
 import {createStore, combineReducers, applyMiddleware} from 'redux';
 import {taskMiddleware} from 'react-palm/tasks';
@@ -131,7 +131,7 @@ const store = createStore(reducer, {}, applyMiddleware(taskMiddleware));
 ```
 
 ### 2. Mount component
-```
+```js
 import KeplerGl from '@kepler.gl/components';
 
 const Map = props => (
@@ -146,7 +146,7 @@ const Map = props => (
 ### 3. Add data to map
 You may dispatch the addDataToMap action from anywhere in your application to interact with a kepler.gl instance and add new data to it.  It refreshes the entire setup (mapState, mapStyle, visState) and adds dataset(s) to a kepler.gl instance.
 
-```
+```js
 import {addDataToMap} from '@kepler.gl/actions';
 
 this.props.dispatch(
