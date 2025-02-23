@@ -21,10 +21,10 @@
     "text": "import numpy as np\nimport matplotlib.pyplot as plt\n%matplotlib inline\n%config InlineBackend.figure_format = 'retina'\n\n\nx = np.linspace(0, 10, 100)\ny = np.sin(x)\n\nplt.plot(x, y)"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
+    "objectID": "index.html#using-kepler.gl-online-no-installation-required",
+    "href": "index.html#using-kepler.gl-online-no-installation-required",
     "title": "Kepler.gl",
-    "section": "",
-    "text": "1. Title:\ndtjfhmfygmhgyjfgjdykfhmyilu\n\n\n\n2. Introduction:\n\n\n\n3. Installation & Setup:\nKepler.gl may be used directly in a web browser or built into a web application, and it is simple to set up. Below are the different ways to install. ## Using Kepler.gl Online (No Installation Required) The simplest way to use Kepler.gl is through its web application\n\n\n\n4. Key Features & Explanation:\n\n\n\n5. Code Examples:\n\n\n\n6. Screenshots:\n\n\n\n7. Use Cases:\n\n\n\n8. Conclusion:\n\n\n\n9. References & Further Reading:\n\nQuarto template Text!"
+    "section": "Using Kepler.gl Online (No Installation Required)",
+    "text": "Using Kepler.gl Online (No Installation Required)\nThe simplest way to use Kepler.gl is through its web application"
   }
 ]
