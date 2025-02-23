@@ -20,9 +20,9 @@ website:
         text: Screenshots
       - href: index.qmd#Use-Cases
         text: Use Cases
-        - href: index.qmd#Conclusion
+      - href: index.qmd#Conclusion
         text: Conclusion
-        - href: index.qmd#References-Further-Reading
+      - href: index.qmd#References-Further-Reading
         text: References Further Reading
 
 
