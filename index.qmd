@@ -17,7 +17,7 @@ title: Kepler.gl
 
 ---
 
-# 4. Key Features & Explanation: {#Key Features-Explanation}
+# 4. Key Features & Explanation: {#Key-Features-Explanation}
 
 ---
 
