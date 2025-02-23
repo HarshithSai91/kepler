@@ -4,7 +4,7 @@ title: Kepler.gl
 ---
 
 
-# 1. Title: {#Title}
+# Title: {#Title}
 
 ```js
 dtjfhmfygmhgyjfgjdykfhmyilu
@@ -13,41 +13,188 @@ dtjfhmfygmhgyjfgjdykfhmyilu
 
 ---
 
-# 2. Introduction: {#Introduction}
+# Introduction: {#Introduction}
 Kepler.gl is a WebGL-powered, open-source tool for displaying massive amounts of geographical data. It was created by the Visualization team of Uber and allows users to rapidly and simply generate interactive maps without needing to know a lot of code. Kepler.gl automatically processes datasets and creates beautiful visuals using an easy-to-use drag-and-drop interface.
+
 Its robust features, which include time-based animations, support for many layers, and 3D mapping, make it perfect for uses in environmental studies, transportation analysis, and urban planning. Kepler.gl offers a smooth method for exploring, analyzing, and sharing location-based insights, regardless of your background as a data scientist, researcher, or analyst.
 ---
 
-# 3. Installation & Setup: {#Installation-Setup}
+# Installation & Setup: {#Installation-Setup}
 Kepler.gl may be used directly in a web browser or built into a web application, and it is simple to set up. Below are the different ways to install.
 
-## Using Kepler.gl Online (No Installation Required)
+## 1. Using Kepler.gl Online (No Installation Required)
 
-The simplest way to use Kepler.gl is through its web application
+The simplest way to use Kepler.gl is through its web application:
+Visit Kepler.gl
+* Click “Get Started” to launch the tool.
+* Upload a dataset (CSV, JSON, or GeoJSON).
+* Customize and explore your geospatial data.
+
+## 2. Installing Kepler.gl in a React App
+
+
+### Step 1: Installation
+Use Node v18 and above, older node versions have not been tested
+```
+npm install --save kepler.gl @kepler.gl/components @kepler.gl/reducers
+```
+
+## Get Mapbox Token
+Kepler.gl is built on top of Mapbox GL. A mapbox account and an access token are needed to use kepler.gl in your app. Get a Mapbox Access Token at mapbox.com.
+
+### 0. Working Template
+
+```
+import * as React from "react";
+import ReactDOM from "react-dom/client";
+import document from "global/document";
+
+import { applyMiddleware, combineReducers, compose, createStore } from "redux";
+import { connect, Provider } from "react-redux";
+
+import keplerGlReducer, { enhanceReduxMiddleware } from "@kepler.gl/reducers";
+import KeplerGl from "@kepler.gl/components";
+
+import AutoSizer from "react-virtualized/dist/commonjs/AutoSizer";
+
+const reducers = combineReducers({
+  keplerGl: keplerGlReducer.initialState({
+    uiState: {
+      readOnly: false,
+      currentModal: null,
+    },
+  }),
+});
+
+const middleWares = enhanceReduxMiddleware([
+  // Add other middlewares here
+]);
+
+const enhancers = applyMiddleware(...middleWares);
+
+const initialState = {};
+const store = createStore(reducers, initialState, compose(enhancers));
+
+const App2 = () => (
+  <div
+    style={{
+      position: "absolute",
+      top: "0px",
+      left: "0px",
+      width: "100%",
+      height: "100%",
+    }}
+  >
+    <AutoSizer>
+      {({ height, width }) => (
+        <KeplerGl
+          mapboxApiAccessToken="xxx" // Replace with your mapbox token
+          id="map"
+          width={width}
+          height={height}
+        />
+      )}
+    </AutoSizer>
+  </div>
+);
+
+const mapStateToProps = (state) => state;
+const dispatchToProps = (dispatch) => ({ dispatch });
+const ConnectedApp = connect(mapStateToProps, dispatchToProps)(App2);
+const Root = () => (
+  <Provider store={store}>
+    <App2 />
+  </Provider>
+);
+
+export default Root;
+```
+
+### 1. Mount reducer
+Kepler.gl uses Redux to manage its internal state, along with react-palm middleware to handle side effects. Mount kepler.gl reducer in your store, apply taskMiddleware.
+
+```
+import keplerGlReducer from '@kepler.gl/reducers';
+import {createStore, combineReducers, applyMiddleware} from 'redux';
+import {taskMiddleware} from 'react-palm/tasks';
+
+const reducer = combineReducers({
+  // <-- mount kepler.gl reducer in your app
+  keplerGl: keplerGlReducer,
+
+  // Your other reducers here
+  app: appReducer
+});
+
+// create store
+const store = createStore(reducer, {}, applyMiddleware(taskMiddleware));
+```
+
+### 2. Mount component
+```
+import KeplerGl from '@kepler.gl/components';
+
+const Map = props => (
+  <KeplerGl
+      id="foo"
+      mapboxApiAccessToken={token}
+      width={width}
+      height={height}/>
+);
+```
+
+### 3. Add data to map
+You may dispatch the addDataToMap action from anywhere in your application to interact with a kepler.gl instance and add new data to it.  It refreshes the entire setup (mapState, mapStyle, visState) and adds dataset(s) to a kepler.gl instance.
+
+```
+import {addDataToMap} from '@kepler.gl/actions';
+
+this.props.dispatch(
+  addDataToMap({
+    // datasets
+    datasets: {
+      info: {
+        label: 'Sample Taxi Trips in New York City',
+        id: 'test_trip_data'
+      },
+      data: sampleTripData
+    },
+    // option
+    option: {
+      centerMap: true,
+      readOnly: false
+    },
+    // config
+    config: {
+      mapStyle: {styleType: 'light'}
+    }
+  })
+);
+```
 
 ---
 
-# 4. Key Features & Explanation: {#Key-Features-Explanation}
+# Key Features & Explanation: {#Key-Features-Explanation}
 
 ---
 
-# 5. Code Examples: {#Code-Examples}
+# Code Examples: {#Code-Examples}
 
 ---
 
-# 6. Screenshots: {#Screenshots}
+# Screenshots: {#Screenshots}
 
 ---
 
-# 7. Use Cases: {#Use-Cases}
+# Use Cases: {#Use-Cases}
 
 ---
 
-# 8. Conclusion: {#Conclusion}
+# Conclusion: {#Conclusion}
 
 ---
 
-# 9. References & Further Reading: {#References-Further-Reading}
+# References & Further Reading: {#References-Further-Reading}
 
 ---
 Quarto template Text!
