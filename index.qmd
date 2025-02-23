@@ -1,9 +1,23 @@
 ---
 title: 1. Title
 ---
-```js
-asdfghjkl;.,mnbvcxxcvghjkjhgfd
-```
-# title
+
+# 1. Title:
+
+# 2. Introduction:
+
+# 3. Installation & Setup:
+
+# 4. Key Features & Explanation:
+
+# 5. Code Examples:
+
+# 6. Screenshots:
+
+# 7. Use Cases:
+
+# 8. Conclusion:
+
+# 9. References & Further Reading:
 
 Quarto template Text!
