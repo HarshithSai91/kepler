@@ -25,7 +25,7 @@
     "href": "index.html#using-kepler.gl-online-no-installation-required",
     "title": "Kepler.gl",
     "section": "1. Using Kepler.gl Online (No Installation Required)",
-    "text": "1. Using Kepler.gl Online (No Installation Required)\nThe simplest way to use Kepler.gl is through its web application: Visit Kepler.gl * Click “Get Started” to launch the tool. * Upload a dataset (CSV, JSON, or GeoJSON). * Customize and explore your geospatial data."
+    "text": "1. Using Kepler.gl Online (No Installation Required)\nThe simplest way to use Kepler.gl is through its web application: Visit Kepler.gl\n\nClick “Get Started” to launch the tool.\nUpload a dataset (CSV, JSON, or GeoJSON).\nCustomize and explore your geospatial data."
   },
   {
     "objectID": "index.html#installing-kepler.gl-in-a-react-app",
