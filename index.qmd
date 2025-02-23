@@ -26,8 +26,11 @@ Kepler.gl may be used directly in a web browser or built into a web application,
 
 The simplest way to use Kepler.gl is through its web application:
 Visit Kepler.gl
+
 * Click “Get Started” to launch the tool.
+
 * Upload a dataset (CSV, JSON, or GeoJSON).
+
 * Customize and explore your geospatial data.
 
 ## 2. Installing Kepler.gl in a React App
