@@ -193,46 +193,182 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <hr>
 <section id="Title" class="level1">
-<h1>1. Title:</h1>
+<h1>Title:</h1>
 <div class="sourceCode" id="cb1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>dtjfhmfygmhgyjfgjdykfhmyilu</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <hr>
 </section>
 <section id="Introduction" class="level1">
-<h1>2. Introduction:</h1>
-<p>Kepler.gl is a WebGL-powered, open-source tool for displaying massive amounts of geographical data. It was created by the Visualization team of Uber and allows users to rapidly and simply generate interactive maps without needing to know a lot of code. Kepler.gl automatically processes datasets and creates beautiful visuals using an easy-to-use drag-and-drop interface. Its robust features, which include time-based animations, support for many layers, and 3D mapping, make it perfect for uses in environmental studies, transportation analysis, and urban planning. Kepler.gl offers a smooth method for exploring, analyzing, and sharing location-based insights, regardless of your background as a data scientist, researcher, or analyst.</p>
+<h1>Introduction:</h1>
+<p>Kepler.gl is a WebGL-powered, open-source tool for displaying massive amounts of geographical data. It was created by the Visualization team of Uber and allows users to rapidly and simply generate interactive maps without needing to know a lot of code. Kepler.gl automatically processes datasets and creates beautiful visuals using an easy-to-use drag-and-drop interface.</p>
+<p>Its robust features, which include time-based animations, support for many layers, and 3D mapping, make it perfect for uses in environmental studies, transportation analysis, and urban planning. Kepler.gl offers a smooth method for exploring, analyzing, and sharing location-based insights, regardless of your background as a data scientist, researcher, or analyst.</p>
 <hr>
 </section>
 <section id="Installation-Setup" class="level1">
-<h1>3. Installation &amp; Setup:</h1>
+<h1>Installation &amp; Setup:</h1>
 <p>Kepler.gl may be used directly in a web browser or built into a web application, and it is simple to set up. Below are the different ways to install.</p>
 <section id="using-kepler.gl-online-no-installation-required" class="level2">
-<h2 class="anchored" data-anchor-id="using-kepler.gl-online-no-installation-required">Using Kepler.gl Online (No Installation Required)</h2>
-<p>The simplest way to use Kepler.gl is through its web application</p>
+<h2 class="anchored" data-anchor-id="using-kepler.gl-online-no-installation-required">1. Using Kepler.gl Online (No Installation Required)</h2>
+<p>The simplest way to use Kepler.gl is through its web application: Visit Kepler.gl * Click “Get Started” to launch the tool. * Upload a dataset (CSV, JSON, or GeoJSON). * Customize and explore your geospatial data.</p>
+</section>
+<section id="installing-kepler.gl-in-a-react-app" class="level2">
+<h2 class="anchored" data-anchor-id="installing-kepler.gl-in-a-react-app">2. Installing Kepler.gl in a React App</h2>
+<section id="step-1-installation" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-installation">Step 1: Installation</h3>
+<p>Use Node v18 and above, older node versions have not been tested</p>
+<pre><code>npm install --save kepler.gl @kepler.gl/components @kepler.gl/reducers</code></pre>
+</section>
+</section>
+<section id="get-mapbox-token" class="level2">
+<h2 class="anchored" data-anchor-id="get-mapbox-token">Get Mapbox Token</h2>
+<p>Kepler.gl is built on top of Mapbox GL. A mapbox account and an access token are needed to use kepler.gl in your app. Get a Mapbox Access Token at mapbox.com.</p>
+<section id="working-template" class="level3">
+<h3 class="anchored" data-anchor-id="working-template">0. Working Template</h3>
+<pre><code>import * as React from "react";
+import ReactDOM from "react-dom/client";
+import document from "global/document";
+
+import { applyMiddleware, combineReducers, compose, createStore } from "redux";
+import { connect, Provider } from "react-redux";
+
+import keplerGlReducer, { enhanceReduxMiddleware } from "@kepler.gl/reducers";
+import KeplerGl from "@kepler.gl/components";
+
+import AutoSizer from "react-virtualized/dist/commonjs/AutoSizer";
+
+const reducers = combineReducers({
+  keplerGl: keplerGlReducer.initialState({
+    uiState: {
+      readOnly: false,
+      currentModal: null,
+    },
+  }),
+});
+
+const middleWares = enhanceReduxMiddleware([
+  // Add other middlewares here
+]);
+
+const enhancers = applyMiddleware(...middleWares);
+
+const initialState = {};
+const store = createStore(reducers, initialState, compose(enhancers));
+
+const App2 = () =&gt; (
+  &lt;div
+    style={{
+      position: "absolute",
+      top: "0px",
+      left: "0px",
+      width: "100%",
+      height: "100%",
+    }}
+  &gt;
+    &lt;AutoSizer&gt;
+      {({ height, width }) =&gt; (
+        &lt;KeplerGl
+          mapboxApiAccessToken="xxx" // Replace with your mapbox token
+          id="map"
+          width={width}
+          height={height}
+        /&gt;
+      )}
+    &lt;/AutoSizer&gt;
+  &lt;/div&gt;
+);
+
+const mapStateToProps = (state) =&gt; state;
+const dispatchToProps = (dispatch) =&gt; ({ dispatch });
+const ConnectedApp = connect(mapStateToProps, dispatchToProps)(App2);
+const Root = () =&gt; (
+  &lt;Provider store={store}&gt;
+    &lt;App2 /&gt;
+  &lt;/Provider&gt;
+);
+
+export default Root;</code></pre>
+</section>
+<section id="mount-reducer" class="level3">
+<h3 class="anchored" data-anchor-id="mount-reducer">1. Mount reducer</h3>
+<p>Kepler.gl uses Redux to manage its internal state, along with react-palm middleware to handle side effects. Mount kepler.gl reducer in your store, apply taskMiddleware.</p>
+<pre><code>import keplerGlReducer from '@kepler.gl/reducers';
+import {createStore, combineReducers, applyMiddleware} from 'redux';
+import {taskMiddleware} from 'react-palm/tasks';
+
+const reducer = combineReducers({
+  // &lt;-- mount kepler.gl reducer in your app
+  keplerGl: keplerGlReducer,
+
+  // Your other reducers here
+  app: appReducer
+});
+
+// create store
+const store = createStore(reducer, {}, applyMiddleware(taskMiddleware));</code></pre>
+</section>
+<section id="mount-component" class="level3">
+<h3 class="anchored" data-anchor-id="mount-component">2. Mount component</h3>
+<pre><code>import KeplerGl from '@kepler.gl/components';
+
+const Map = props =&gt; (
+  &lt;KeplerGl
+      id="foo"
+      mapboxApiAccessToken={token}
+      width={width}
+      height={height}/&gt;
+);</code></pre>
+</section>
+<section id="add-data-to-map" class="level3">
+<h3 class="anchored" data-anchor-id="add-data-to-map">3. Add data to map</h3>
+<p>You may dispatch the addDataToMap action from anywhere in your application to interact with a kepler.gl instance and add new data to it. It refreshes the entire setup (mapState, mapStyle, visState) and adds dataset(s) to a kepler.gl instance.</p>
+<pre><code>import {addDataToMap} from '@kepler.gl/actions';
+
+this.props.dispatch(
+  addDataToMap({
+    // datasets
+    datasets: {
+      info: {
+        label: 'Sample Taxi Trips in New York City',
+        id: 'test_trip_data'
+      },
+      data: sampleTripData
+    },
+    // option
+    option: {
+      centerMap: true,
+      readOnly: false
+    },
+    // config
+    config: {
+      mapStyle: {styleType: 'light'}
+    }
+  })
+);</code></pre>
 <hr>
+</section>
 </section>
 </section>
 <section id="Key-Features-Explanation" class="level1">
-<h1>4. Key Features &amp; Explanation:</h1>
+<h1>Key Features &amp; Explanation:</h1>
 <hr>
 </section>
 <section id="Code-Examples" class="level1">
-<h1>5. Code Examples:</h1>
+<h1>Code Examples:</h1>
 <hr>
 </section>
 <section id="Screenshots" class="level1">
-<h1>6. Screenshots:</h1>
+<h1>Screenshots:</h1>
 <hr>
 </section>
 <section id="Use-Cases" class="level1">
-<h1>7. Use Cases:</h1>
+<h1>Use Cases:</h1>
 <hr>
 </section>
 <section id="Conclusion" class="level1">
-<h1>8. Conclusion:</h1>
+<h1>Conclusion:</h1>
 <hr>
 </section>
 <section id="References-Further-Reading" class="level1">
-<h1>9. References &amp; Further Reading:</h1>
+<h1>References &amp; Further Reading:</h1>
 <hr>
 <p>Quarto template Text!</p>
 
