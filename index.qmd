@@ -20,7 +20,7 @@ dtjfhmfygmhgyjfgjdykfhmyilu
 # 3. Installation & Setup: {#Installation-Setup}
 Kepler.gl may be used directly in a web browser or built into a web application, and it is simple to set up. Below are the different ways to install.
 ## Using Kepler.gl Online (No Installation Required)
-The simplest way to use Kepler.gl is through its web application.
+The simplest way to use Kepler.gl is through its web application
 
 ---
 
