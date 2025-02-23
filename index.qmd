@@ -18,6 +18,7 @@ dtjfhmfygmhgyjfgjdykfhmyilu
 ---
 
 # 3. Installation & Setup: {#Installation-Setup}
+Kepler.gl is easy to set up and can be used directly in a web browser or integrated into a web application. Below are the different ways to install and configure it.
 
 ---
 
