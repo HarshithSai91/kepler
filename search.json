@@ -53,6 +53,41 @@
     "href": "index.html#multiple-layer-visualizations",
     "title": "Kepler.gl",
     "section": "2. Multiple Layer Visualizations",
-    "text": "2. Multiple Layer Visualizations\nUsers are able to overlay multiple layers such as:\n\nPoint Layer – Plots single locations.\nHeatmap Layer – Identifies data density.\nArc Layer – Displays connections between locations.\nHexbin & Grid Layers – Bins data into hexagonal or square bins.\nLayers can be customized with colors, sizes, and labels."
+    "text": "2. Multiple Layer Visualizations\nUsers are able to overlay multiple layers such as:\n\nPoint Layer – Plots single locations.\nHeatmap Layer – Identifies data density.\nArc Layer – Displays connections between locations.\nHexbin & Grid Layers – Bins data into hexagonal or square bins.\n\nLayers can be customized with colors, sizes, and labels."
+  },
+  {
+    "objectID": "index.html#advanced-filtering-data-exploration",
+    "href": "index.html#advanced-filtering-data-exploration",
+    "title": "Kepler.gl",
+    "section": "3. Advanced Filtering & Data Exploration",
+    "text": "3. Advanced Filtering & Data Exploration\n\nFiltering allows users to concentrate on data subsets of their interest.\nInteractive click and hover functionalities deliver greater insight into data points."
+  },
+  {
+    "objectID": "index.html#time-animation-for-dynamic-data",
+    "href": "index.html#time-animation-for-dynamic-data",
+    "title": "Kepler.gl",
+    "section": "4. Time Animation for Dynamic Data",
+    "text": "4. Time Animation for Dynamic Data\n\nTime playback functionality enables visualization of how the data evolves through time.\nBeneficial in monitoring movement, trends, and temporal patterns."
+  },
+  {
+    "objectID": "index.html#d-data-visualization",
+    "href": "index.html#d-data-visualization",
+    "title": "Kepler.gl",
+    "section": "5. 3D Data Visualization",
+    "text": "5. 3D Data Visualization\n\nFacilitates elevation-based mapping of depth and perspective.\nUseful for showing values such as population density or elevation."
+  },
+  {
+    "objectID": "index.html#custom-styling-theming",
+    "href": "index.html#custom-styling-theming",
+    "title": "Kepler.gl",
+    "section": "6. Custom Styling & Theming",
+    "text": "6. Custom Styling & Theming\n\nThey are able to change colors, transparency, labels, and tooltips for improved readability.\nIncludes dark and light themes to accommodate various styles of visualization."
+  },
+  {
+    "objectID": "index.html#exporting-sharing-maps",
+    "href": "index.html#exporting-sharing-maps",
+    "title": "Kepler.gl",
+    "section": "7. Exporting & Sharing Maps",
+    "text": "7. Exporting & Sharing Maps\n\nExport as HTML, JSON, or images.\nShare interactive maps effortlessly through URL or embed into presentations and web pages."
   }
 ]
