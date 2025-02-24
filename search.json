@@ -40,54 +40,5 @@
     "title": "Kepler.gl",
     "section": "Get Mapbox Token",
     "text": "Get Mapbox Token\nKepler.gl is built on top of Mapbox GL. A mapbox account and an access token are needed to use kepler.gl in your app. Get a Mapbox Access Token at mapbox.com.\n\n0. Working Template\nimport * as React from \"react\";\nimport ReactDOM from \"react-dom/client\";\nimport document from \"global/document\";\n\nimport { applyMiddleware, combineReducers, compose, createStore } from \"redux\";\nimport { connect, Provider } from \"react-redux\";\n\nimport keplerGlReducer, { enhanceReduxMiddleware } from \"@kepler.gl/reducers\";\nimport KeplerGl from \"@kepler.gl/components\";\n\nimport AutoSizer from \"react-virtualized/dist/commonjs/AutoSizer\";\n\nconst reducers = combineReducers({\n  keplerGl: keplerGlReducer.initialState({\n    uiState: {\n      readOnly: false,\n      currentModal: null,\n    },\n  }),\n});\n\nconst middleWares = enhanceReduxMiddleware([\n  // Add other middlewares here\n]);\n\nconst enhancers = applyMiddleware(...middleWares);\n\nconst initialState = {};\nconst store = createStore(reducers, initialState, compose(enhancers));\n\nconst App2 = () =&gt; (\n  &lt;div\n    style={{\n      position: \"absolute\",\n      top: \"0px\",\n      left: \"0px\",\n      width: \"100%\",\n      height: \"100%\",\n    }}\n  &gt;\n    &lt;AutoSizer&gt;\n      {({ height, width }) =&gt; (\n        &lt;KeplerGl\n          mapboxApiAccessToken=\"xxx\" // Replace with your mapbox token\n          id=\"map\"\n          width={width}\n          height={height}\n        /&gt;\n      )}\n    &lt;/AutoSizer&gt;\n  &lt;/div&gt;\n);\n\nconst mapStateToProps = (state) =&gt; state;\nconst dispatchToProps = (dispatch) =&gt; ({ dispatch });\nconst ConnectedApp = connect(mapStateToProps, dispatchToProps)(App2);\nconst Root = () =&gt; (\n  &lt;Provider store={store}&gt;\n    &lt;App2 /&gt;\n  &lt;/Provider&gt;\n);\n\nexport default Root;\n\n\n1. Mount reducer\nKepler.gl uses Redux to manage its internal state, along with react-palm middleware to handle side effects. Mount kepler.gl reducer in your store, apply taskMiddleware.\nimport keplerGlReducer from '@kepler.gl/reducers';\nimport {createStore, combineReducers, applyMiddleware} from 'redux';\nimport {taskMiddleware} from 'react-palm/tasks';\n\nconst reducer = combineReducers({\n  // &lt;-- mount kepler.gl reducer in your app\n  keplerGl: keplerGlReducer,\n\n  // Your other reducers here\n  app: appReducer\n});\n\n// create store\nconst store = createStore(reducer, {}, applyMiddleware(taskMiddleware));\n\n\n2. Mount component\nimport KeplerGl from '@kepler.gl/components';\n\nconst Map = props =&gt; (\n  &lt;KeplerGl\n      id=\"foo\"\n      mapboxApiAccessToken={token}\n      width={width}\n      height={height}/&gt;\n);\n\n\n3. Add data to map\nYou may dispatch the addDataToMap action from anywhere in your application to interact with a kepler.gl instance and add new data to it. It refreshes the entire setup (mapState, mapStyle, visState) and adds dataset(s) to a kepler.gl instance.\nimport {addDataToMap} from '@kepler.gl/actions';\n\nthis.props.dispatch(\n  addDataToMap({\n    // datasets\n    datasets: {\n      info: {\n        label: 'Sample Taxi Trips in New York City',\n        id: 'test_trip_data'\n      },\n      data: sampleTripData\n    },\n    // option\n    option: {\n      centerMap: true,\n      readOnly: false\n    },\n    // config\n    config: {\n      mapStyle: {styleType: 'light'}\n    }\n  })\n);"
-  },
-  {
-    "objectID": "index.html#easy-data-import-automatic-processing",
-    "href": "index.html#easy-data-import-automatic-processing",
-    "title": "Kepler.gl",
-    "section": "1. Easy Data Import & Automatic Processing",
-    "text": "1. Easy Data Import & Automatic Processing\n\nSupports CSV, JSON, and GeoJSON formats.\nAutomatically detects geographic fields like latitude and longitude."
-  },
-  {
-    "objectID": "index.html#multiple-layer-visualizations",
-    "href": "index.html#multiple-layer-visualizations",
-    "title": "Kepler.gl",
-    "section": "2. Multiple Layer Visualizations",
-    "text": "2. Multiple Layer Visualizations\nUsers are able to overlay multiple layers such as:\n\nPoint Layer – Plots single locations.\nHeatmap Layer – Identifies data density.\nArc Layer – Displays connections between locations.\nHexbin & Grid Layers – Bins data into hexagonal or square bins.\n\nLayers can be customized with colors, sizes, and labels."
-  },
-  {
-    "objectID": "index.html#advanced-filtering-data-exploration",
-    "href": "index.html#advanced-filtering-data-exploration",
-    "title": "Kepler.gl",
-    "section": "3. Advanced Filtering & Data Exploration",
-    "text": "3. Advanced Filtering & Data Exploration\n\nFiltering allows users to concentrate on data subsets of their interest.\nInteractive click and hover functionalities deliver greater insight into data points."
-  },
-  {
-    "objectID": "index.html#time-animation-for-dynamic-data",
-    "href": "index.html#time-animation-for-dynamic-data",
-    "title": "Kepler.gl",
-    "section": "4. Time Animation for Dynamic Data",
-    "text": "4. Time Animation for Dynamic Data\n\nTime playback functionality enables visualization of how the data evolves through time.\nBeneficial in monitoring movement, trends, and temporal patterns."
-  },
-  {
-    "objectID": "index.html#d-data-visualization",
-    "href": "index.html#d-data-visualization",
-    "title": "Kepler.gl",
-    "section": "5. 3D Data Visualization",
-    "text": "5. 3D Data Visualization\n\nFacilitates elevation-based mapping of depth and perspective.\nUseful for showing values such as population density or elevation."
-  },
-  {
-    "objectID": "index.html#custom-styling-theming",
-    "href": "index.html#custom-styling-theming",
-    "title": "Kepler.gl",
-    "section": "6. Custom Styling & Theming",
-    "text": "6. Custom Styling & Theming\n\nThey are able to change colors, transparency, labels, and tooltips for improved readability.\nIncludes dark and light themes to accommodate various styles of visualization."
-  },
-  {
-    "objectID": "index.html#exporting-sharing-maps",
-    "href": "index.html#exporting-sharing-maps",
-    "title": "Kepler.gl",
-    "section": "7. Exporting & Sharing Maps",
-    "text": "7. Exporting & Sharing Maps\n\nExport as HTML, JSON, or images.\nShare interactive maps effortlessly through URL or embed into presentations and web pages."
   }
 ]
