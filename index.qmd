@@ -293,6 +293,9 @@ Through streamlining geospatial analysis complexity, Kepler.gl enables researche
 ---
 
 # References & Further Reading: {#References-Further-Reading}
+For more information on Kepler.gl, explore the following resources:
 
+* Official Kepler.gl Website & Documentation
+[Kepler.gl Homepage](https://kepler.gl/)
 ---
 Quarto template Text!
