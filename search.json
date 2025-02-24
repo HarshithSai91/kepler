@@ -47,5 +47,12 @@
     "title": "Kepler.gl",
     "section": "1. Easy Data Import & Automatic Processing",
     "text": "1. Easy Data Import & Automatic Processing\n\nSupports CSV, JSON, and GeoJSON formats.\nAutomatically detects geographic fields like latitude and longitude."
+  },
+  {
+    "objectID": "index.html#multiple-layer-visualizations",
+    "href": "index.html#multiple-layer-visualizations",
+    "title": "Kepler.gl",
+    "section": "2. Multiple Layer Visualizations",
+    "text": "2. Multiple Layer Visualizations\nUsers are able to overlay multiple layers such as:\n\nPoint Layer – Plots single locations.\nHeatmap Layer – Identifies data density.\nArc Layer – Displays connections between locations.\nHexbin & Grid Layers – Bins data into hexagonal or square bins.\nLayers can be customized with colors, sizes, and labels."
   }
 ]
