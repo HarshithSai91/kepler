@@ -181,13 +181,13 @@ this.props.dispatch(
 Kepler.gl is a powerful and user-friendly tool for geospatial data visualization.
 Here are its key features:
 
-## 1. Easy Data Import & Automatic Processing
+### 1. Easy Data Import & Automatic Processing
 
 * Supports CSV, JSON, and GeoJSON formats.
 
 * Automatically detects geographic fields like latitude and longitude.
 
-## 2. Multiple Layer Visualizations
+### 2. Multiple Layer Visualizations
 Users are able to overlay multiple layers such as:
 
 * Point Layer – Plots single locations.
@@ -200,31 +200,31 @@ Users are able to overlay multiple layers such as:
 
 Layers can be customized with colors, sizes, and labels.
 
-## 3. Advanced Filtering & Data Exploration
+### 3. Advanced Filtering & Data Exploration
 
 * Filtering allows users to concentrate on data subsets of their interest.
 
 * Interactive click and hover functionalities deliver greater insight into data points.
 
-## 4. Time Animation for Dynamic Data
+### 4. Time Animation for Dynamic Data
 
 * Time playback functionality enables visualization of how the data evolves through time.
 
 * Beneficial in monitoring movement, trends, and temporal patterns.
 
-## 5. 3D Data Visualization
+### 5. 3D Data Visualization
 
 * Facilitates elevation-based mapping of depth and perspective.
 
 * Useful for showing values such as population density or elevation.
 
-## 6. Custom Styling & Theming
+### 6. Custom Styling & Theming
 
 * They are able to change colors, transparency, labels, and tooltips for improved readability.
 
 * Includes dark and light themes to accommodate various styles of visualization.
 
-## 7. Exporting & Sharing Maps
+### 7. Exporting & Sharing Maps
 
 * Export as HTML, JSON, or images.
 
