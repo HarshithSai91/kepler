@@ -178,6 +178,17 @@ this.props.dispatch(
 ---
 
 # Key Features & Explanation: {#Key-Features-Explanation}
+Kepler.gl is a powerful and user-friendly tool for geospatial data visualization.
+Here are its key features:
+
+## 1. Easy Data Import & Automatic Processing
+
+* Supports CSV, JSON, and GeoJSON formats.
+
+* Automatically detects geographic fields like latitude and longitude.
+
+
+
 
 ---
 
