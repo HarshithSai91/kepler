@@ -187,7 +187,18 @@ Here are its key features:
 
 * Automatically detects geographic fields like latitude and longitude.
 
+## 2. Multiple Layer Visualizations
+Users are able to overlay multiple layers such as:
 
+* Point Layer – Plots single locations.
+
+* Heatmap Layer – Identifies data density.
+
+* Arc Layer – Displays connections between locations.
+
+* Hexbin & Grid Layers – Bins data into hexagonal or square bins.
+
+* Layers can be customized with colors, sizes, and labels.
 
 
 ---
