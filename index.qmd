@@ -297,6 +297,9 @@ For more information on Kepler.gl, explore the following resources:
 
 * Official Kepler.gl Website & Documentation
 
-[Kepler.gl Homepage](https://kepler.gl/)
+[Kepler.gl Homepage](https://kepler.gl/)-Get started with the tool.
+[Kepler.gl Documentation](https://docs.kepler.gl/docs/api-reference)-Detailed guides on features, installation, and customization.
+
+
 ---
 Quarto template Text!
