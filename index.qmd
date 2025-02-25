@@ -48,7 +48,7 @@ npm install --save kepler.gl @kepler.gl/components @kepler.gl/reducers
 ## Get Mapbox Token
 Kepler.gl is built on top of Mapbox GL. A mapbox account and an access token are needed to use kepler.gl in your app. Get a Mapbox Access Token at mapbox.com.
 
-### 0. Working Template
+### 1. Working Template
 
 ```js
 import * as React from "react";
@@ -116,7 +116,7 @@ const Root = () => (
 export default Root;
 ```
 
-### 1. Mount reducer
+### 2. Mount reducer
 Kepler.gl uses Redux to manage its internal state, along with react-palm middleware to handle side effects. Mount kepler.gl reducer in your store, apply taskMiddleware.
 
 ```js
@@ -136,7 +136,7 @@ const reducer = combineReducers({
 const store = createStore(reducer, {}, applyMiddleware(taskMiddleware));
 ```
 
-### 2. Mount component
+### 3. Mount component
 ```js
 import KeplerGl from '@kepler.gl/components';
 
@@ -149,7 +149,7 @@ const Map = props => (
 );
 ```
 
-### 3. Add data to map
+### 4. Add data to map
 You may dispatch the addDataToMap action from anywhere in your application to interact with a kepler.gl instance and add new data to it.  It refreshes the entire setup (mapState, mapStyle, visState) and adds dataset(s) to a kepler.gl instance.
 
 ```js
