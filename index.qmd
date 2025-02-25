@@ -4,11 +4,14 @@ title: Kepler.gl
 ---
 
 
-# Title: {#Title}
+# Group Information {#Title}
 
-```js
-dtjfhmfygmhgyjfgjdykfhmyilu
-```
+* Group number - J061
+
+* Group Topic: Kepler.gl
+
+* One line description-Geospatial visualizations with a no-code interface.
+
 
 
 ---
