@@ -7,7 +7,7 @@ website:
   navbar:
     right:
       - href: index.qmd#Title
-        text: Title
+        text: Group Information
       - href: index.qmd#Introduction
         text: Introduction
       - href: index.qmd#Installation-Setup
