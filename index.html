@@ -231,7 +231,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="get-mapbox-token">Get Mapbox Token</h2>
 <p>Kepler.gl is built on top of Mapbox GL. A mapbox account and an access token are needed to use kepler.gl in your app. Get a Mapbox Access Token at mapbox.com.</p>
 <section id="working-template" class="level3">
-<h3 class="anchored" data-anchor-id="working-template">0. Working Template</h3>
+<h3 class="anchored" data-anchor-id="working-template">1. Working Template</h3>
 <div class="sourceCode" id="cb2"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> <span class="op">*</span> <span class="im">as</span> React <span class="im">from</span> <span class="st">"react"</span><span class="op">;</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> ReactDOM <span class="im">from</span> <span class="st">"react-dom/client"</span><span class="op">;</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> <span class="bu">document</span> <span class="im">from</span> <span class="st">"global/document"</span><span class="op">;</span></span>
@@ -297,7 +297,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="im">default</span> Root<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="mount-reducer" class="level3">
-<h3 class="anchored" data-anchor-id="mount-reducer">1. Mount reducer</h3>
+<h3 class="anchored" data-anchor-id="mount-reducer">2. Mount reducer</h3>
 <p>Kepler.gl uses Redux to manage its internal state, along with react-palm middleware to handle side effects. Mount kepler.gl reducer in your store, apply taskMiddleware.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> keplerGlReducer <span class="im">from</span> <span class="st">'@kepler.gl/reducers'</span><span class="op">;</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> {createStore<span class="op">,</span> combineReducers<span class="op">,</span> applyMiddleware} <span class="im">from</span> <span class="st">'redux'</span><span class="op">;</span></span>
@@ -315,7 +315,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> store <span class="op">=</span> <span class="fu">createStore</span>(reducer<span class="op">,</span> {}<span class="op">,</span> <span class="fu">applyMiddleware</span>(taskMiddleware))<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="mount-component" class="level3">
-<h3 class="anchored" data-anchor-id="mount-component">2. Mount component</h3>
+<h3 class="anchored" data-anchor-id="mount-component">3. Mount component</h3>
 <div class="sourceCode" id="cb4"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> KeplerGl <span class="im">from</span> <span class="st">'@kepler.gl/components'</span><span class="op">;</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> <span class="bu">Map</span> <span class="op">=</span> props <span class="kw">=&gt;</span> (</span>
@@ -327,7 +327,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="add-data-to-map" class="level3">
-<h3 class="anchored" data-anchor-id="add-data-to-map">3. Add data to map</h3>
+<h3 class="anchored" data-anchor-id="add-data-to-map">4. Add data to map</h3>
 <p>You may dispatch the addDataToMap action from anywhere in your application to interact with a kepler.gl instance and add new data to it. It refreshes the entire setup (mapState, mapStyle, visState) and adds dataset(s) to a kepler.gl instance.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> {addDataToMap} <span class="im">from</span> <span class="st">'@kepler.gl/actions'</span><span class="op">;</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
